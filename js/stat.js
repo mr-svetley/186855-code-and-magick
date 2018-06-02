@@ -54,7 +54,7 @@ window.renderStatistics = function (ctx, names, times) {
     if (names[i] === 'Вы') {
       ctx.fillStyle = CLOUD_YOUR_COLOR;
     } else {
-      ctx.fillStyle = 'rgba(0, 0, ' + Math.floor(Math.random() * 255) + ', 1)';
+      ctx.fillStyle = 'hsl(240, ' + Math.floor(Math.random() * 100) + '%, 50%)';
     }
 
     ctx.fillRect(CLOUD_X + CLOUD_PADDING + CLOUD_BAR_MARGIN / 2 + (CLOUD_BAR_MARGIN + CLOUD_BAR_WIDTH) * i, CLOUD_Y + CLOUD_HEIGHT - CLOUD_LINE_HEIGHT - CLOUD_GAP - CLOUD_PADDING - CLOUD_BAR_HEIGHT * times[i] / maxTime, CLOUD_BAR_WIDTH, CLOUD_BAR_HEIGHT * times[i] / maxTime);
