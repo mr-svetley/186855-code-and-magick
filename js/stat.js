@@ -16,7 +16,7 @@ var CLOUD_BAR_MARGIN = 50;
 var CLOUD_BAR_HEIGHT = 150;
 var CLOUD_YOUR_COLOR = 'rgba(255, 0, 0, 1)';
 
-var cloudRender = function (ctx, x, y, width, height) {
+var renderCloud = function (ctx, x, y, width, height) {
   ctx.fillStyle = CLOUD_SHADOW_COLOR;
   ctx.fillRect(x + CLOUD_GAP, y + CLOUD_GAP, width, height);
   ctx.fillStyle = CLOUD_COLOR;
@@ -36,7 +36,7 @@ var getMaxValue = function (arr) {
 };
 
 window.renderStatistics = function (ctx, names, times) {
-  cloudRender(ctx, CLOUD_X, CLOUD_Y, CLOUD_WIDTH, CLOUD_HEIGHT);
+  renderCloud(ctx, CLOUD_X, CLOUD_Y, CLOUD_WIDTH, CLOUD_HEIGHT);
 
   ctx.fillStyle = CLOUD_TEXT_COLOR;
   ctx.font = CLOUD_FONT;
