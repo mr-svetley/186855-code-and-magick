@@ -49,7 +49,7 @@ window.renderStatistics = function (ctx, names, times) {
   var DIAGRAM_Y = CLOUD_Y + CLOUD_HEIGHT - CLOUD_PADDING;
   var DIAGRAM_COL_WIDTH = CLOUD_BAR_MARGIN + CLOUD_BAR_WIDTH;
 
-  names.forEach (function (name, i) {
+  names.forEach(function (name, i) {
     barCurrenHeight = CLOUD_BAR_HEIGHT * times[i] / maxTime;
     var barCurrentX = DIAGRAM_X + DIAGRAM_COL_WIDTH * i;
     var barCurrentY = DIAGRAM_Y - CLOUD_LINE_HEIGHT - CLOUD_GAP - barCurrenHeight;
