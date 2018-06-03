@@ -44,12 +44,22 @@ window.renderStatistics = function (ctx, names, times) {
   ctx.fillText('Ура! Вы победили!', CLOUD_X + CLOUD_PADDING, CLOUD_Y + CLOUD_PADDING);
   ctx.fillText('Список результатов:', CLOUD_X + CLOUD_PADDING, CLOUD_Y + CLOUD_PADDING + CLOUD_LINE_HEIGHT);
   var maxTime = getMaxValue(times);
+  var barCurrenHeight;
+  var DIAGRAM_X = CLOUD_X + CLOUD_PADDING + CLOUD_BAR_MARGIN / 2;
+  var DIAGRAM_Y = CLOUD_Y + CLOUD_HEIGHT - CLOUD_PADDING;
+  var DIAGRAM_COL_WIDTH = CLOUD_BAR_MARGIN + CLOUD_BAR_WIDTH;
+  var barCurrentX;
+  var barCurrentY;
 
   for (var i = 0; i < names.length; i++) {
-    ctx.fillStyle = CLOUD_TEXT_COLOR;
-    ctx.fillText(names[i], CLOUD_X + CLOUD_PADDING + CLOUD_BAR_MARGIN / 2 + (CLOUD_BAR_MARGIN + CLOUD_BAR_WIDTH) * i, CLOUD_Y + CLOUD_HEIGHT - CLOUD_LINE_HEIGHT - CLOUD_PADDING);
+    barCurrenHeight = CLOUD_BAR_HEIGHT * times[i] / maxTime;
+    barCurrentX = DIAGRAM_X + DIAGRAM_COL_WIDTH * i;
+    barCurrentY = DIAGRAM_Y - CLOUD_LINE_HEIGHT - CLOUD_GAP - barCurrenHeight;
 
-    ctx.fillText(Math.round(times[i]), CLOUD_X + CLOUD_PADDING + CLOUD_BAR_MARGIN / 2 + (CLOUD_BAR_MARGIN + CLOUD_BAR_WIDTH) * i, CLOUD_Y + CLOUD_HEIGHT - 2 * CLOUD_LINE_HEIGHT - CLOUD_GAP - CLOUD_PADDING - CLOUD_BAR_HEIGHT * times[i] / maxTime);
+    ctx.fillStyle = CLOUD_TEXT_COLOR;
+    ctx.fillText(names[i], barCurrentX, DIAGRAM_Y - CLOUD_LINE_HEIGHT);
+
+    ctx.fillText(Math.round(times[i]), barCurrentX, barCurrentY);
 
     if (names[i] === 'Вы') {
       ctx.fillStyle = CLOUD_YOUR_COLOR;
@@ -57,6 +67,6 @@ window.renderStatistics = function (ctx, names, times) {
       ctx.fillStyle = 'hsl(240, ' + Math.floor(Math.random() * 100) + '%, 50%)';
     }
 
-    ctx.fillRect(CLOUD_X + CLOUD_PADDING + CLOUD_BAR_MARGIN / 2 + (CLOUD_BAR_MARGIN + CLOUD_BAR_WIDTH) * i, CLOUD_Y + CLOUD_HEIGHT - CLOUD_LINE_HEIGHT - CLOUD_GAP - CLOUD_PADDING - CLOUD_BAR_HEIGHT * times[i] / maxTime, CLOUD_BAR_WIDTH, CLOUD_BAR_HEIGHT * times[i] / maxTime);
+    ctx.fillRect(barCurrentX, barCurrentY, CLOUD_BAR_WIDTH, barCurrenHeight);
   }
 };
