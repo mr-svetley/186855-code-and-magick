@@ -23,18 +23,6 @@ var renderCloud = function (ctx, x, y, width, height) {
   ctx.fillRect(x, y, width, height);
 };
 
-var getMaxValue = function (arr) {
-  var maxValue = arr[0];
-
-  for (var i = 1; i < arr.length; i++) {
-    if (arr[i] > maxValue) {
-      maxValue = arr[i];
-    }
-  }
-
-  return maxValue;
-};
-
 window.renderStatistics = function (ctx, names, times) {
   renderCloud(ctx, CLOUD_X, CLOUD_Y, CLOUD_WIDTH, CLOUD_HEIGHT);
 
@@ -43,7 +31,7 @@ window.renderStatistics = function (ctx, names, times) {
   ctx.textBaseline = 'hanging';
   ctx.fillText('Ура! Вы победили!', CLOUD_X + CLOUD_PADDING, CLOUD_Y + CLOUD_PADDING);
   ctx.fillText('Список результатов:', CLOUD_X + CLOUD_PADDING, CLOUD_Y + CLOUD_PADDING + CLOUD_LINE_HEIGHT);
-  var maxTime = getMaxValue(times);
+  var maxTime = Math.max.apply(null, times);
   var barCurrenHeight;
   var DIAGRAM_X = CLOUD_X + CLOUD_PADDING + CLOUD_BAR_MARGIN / 2;
   var DIAGRAM_Y = CLOUD_Y + CLOUD_HEIGHT - CLOUD_PADDING;
@@ -57,7 +45,7 @@ window.renderStatistics = function (ctx, names, times) {
     ctx.fillStyle = CLOUD_TEXT_COLOR;
     ctx.fillText(name, barCurrentX, DIAGRAM_Y - CLOUD_LINE_HEIGHT);
 
-    ctx.fillText(Math.round(times[i]), barCurrentX, barCurrentY);
+    ctx.fillText(Math.round(times[i]), barCurrentX, barCurrentY - CLOUD_LINE_HEIGHT);
 
     if (name === 'Вы') {
       ctx.fillStyle = CLOUD_YOUR_COLOR;
