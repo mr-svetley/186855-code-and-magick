@@ -1,10 +1,5 @@
 'use strict';
 
-var setupElement = document.querySelector('.setup');
-setupElement.classList.remove('hidden');
-var playerTemplate = document.querySelector('#similar-wizard-template').content.querySelector('.setup-similar-item');
-var playersList = setupElement.querySelector('.setup-similar-list');
-
 var getRandomIndex = function (arrLength) {
   var maxIndex = --arrLength;
   return Math.round(Math.random() * maxIndex);
@@ -63,6 +58,10 @@ var generatePlayers = function () {
 };
 
 var renderPlayers = function (players) {
+  var setupElement = document.querySelector('.setup');
+  setupElement.classList.remove('hidden');
+  var playerTemplate = document.querySelector('#similar-wizard-template').content.querySelector('.setup-similar-item');
+  var playersList = setupElement.querySelector('.setup-similar-list');
   var fragment = document.createDocumentFragment();
 
   players.forEach(function (player) {
