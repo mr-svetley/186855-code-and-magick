@@ -1,7 +1,7 @@
 'use strict';
 
 var getRandomIndex = function (arrLength) {
-  var maxIndex = --arrLength;
+  var maxIndex = arrLength - 1;
   return Math.round(Math.random() * maxIndex);
 };
 
@@ -43,26 +43,6 @@ var generatePlayers = function () {
   ];
 
   var players = [];
-
-  // for (var i = 0; i < 4; i++) {
-  //   var firsName = FIRST_NAMES[getRandomIndex(FIRST_NAMES.length)];
-  //   var secondName = SECOND_NAMES[getRandomIndex(SECOND_NAMES.length)];
-  //   var player = {};
-  //   player.name = firsName + ' ' + secondName;
-  //   player.coatColor = COAT_COLORS[getRandomIndex(COAT_COLORS.length)];
-  //   player.eyesColor = EYES_COLORS[getRandomIndex(EYES_COLORS.length)];
-  //   players[i] = player;
-  // }
-
-  // players = Array.from({length: 4}).map(function (_, index) {
-  //   var firsName = FIRST_NAMES[getRandomIndex(FIRST_NAMES.length)];
-  //   var secondName = SECOND_NAMES[getRandomIndex(SECOND_NAMES.length)];
-  //   var player = {};
-  //   player.name = firsName + ' ' + secondName;
-  //   player.coatColor = COAT_COLORS[getRandomIndex(COAT_COLORS.length)];
-  //   player.eyesColor = EYES_COLORS[getRandomIndex(EYES_COLORS.length)];
-  //   return player;
-  // });
 
   players = Array.from({length: 4}, function (_, index) {
     var firsName = FIRST_NAMES[getRandomIndex(FIRST_NAMES.length)];
