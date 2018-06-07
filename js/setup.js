@@ -44,7 +44,7 @@ var generatePlayers = function () {
 
   var players = [];
 
-  players = Array.from({length: 4}, function (_, index) {
+  players = Array.from({length: 4}, function () {
     var firsName = FIRST_NAMES[getRandomIndex(FIRST_NAMES.length)];
     var secondName = SECOND_NAMES[getRandomIndex(SECOND_NAMES.length)];
     var player = {};
