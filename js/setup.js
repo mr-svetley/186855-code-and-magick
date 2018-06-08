@@ -42,16 +42,15 @@ var generatePlayers = function () {
     'green'
   ];
 
-  var players = [];
-
-  players = Array.from({length: 4}, function () {
+  var players = Array.from({length: 4}, function () {
     var firsName = FIRST_NAMES[getRandomIndex(FIRST_NAMES.length)];
     var secondName = SECOND_NAMES[getRandomIndex(SECOND_NAMES.length)];
-    var player = {};
-    player.name = firsName + ' ' + secondName;
-    player.coatColor = COAT_COLORS[getRandomIndex(COAT_COLORS.length)];
-    player.eyesColor = EYES_COLORS[getRandomIndex(EYES_COLORS.length)];
-    return player;
+
+    return {
+      name: firsName + ' ' + secondName,
+      coatColor: COAT_COLORS[getRandomIndex(COAT_COLORS.length)],
+      eyesColor: EYES_COLORS[getRandomIndex(EYES_COLORS.length)]
+    };
   });
 
   return players;
