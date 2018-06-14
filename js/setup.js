@@ -84,7 +84,7 @@ var makePlayers = function (players) {
   return fragment;
 };
 
-var onSetupEscPress = function(evt) {
+var onSetupEscPress = function (evt) {
   if (evt.keyCode === ESC_KEYCODE) {
     closeSetup();
   }
@@ -128,7 +128,6 @@ setupOpenElement.addEventListener('click', function () {
 });
 
 setupOpenElement.addEventListener('keydown', function (evt) {
-  console.log(evt);
   if (evt.keyCode === ENTER_KEYCODE) {
     openSetup();
   }
@@ -154,21 +153,21 @@ setupNameImputElement.addEventListener('keydown', function (evt) {
 });
 
 var setupWizardCoatElement = setupElement.querySelector('.setup-wizard .wizard-coat');
-var setupWizardCoatInputElement = setupElement.querySelector('input[name="coat-color"]')
+var setupWizardCoatInputElement = setupElement.querySelector('input[name="coat-color"]');
 
 setupWizardCoatElement.addEventListener('click', function () {
   changeWizardCoat();
 });
 
 var setupWizardEyesElement = setupElement.querySelector('.setup-wizard .wizard-eyes');
-var setupWizardEyesInputElement = setupElement.querySelector('input[name="eyes-color"]')
+var setupWizardEyesInputElement = setupElement.querySelector('input[name="eyes-color"]');
 
 setupWizardEyesElement.addEventListener('click', function () {
   changeWizardEyes();
 });
 
 var setupFireBallElement = setupElement.querySelector('.setup-fireball-wrap');
-var setupFireBallInputElement = setupElement.querySelector('input[name="fireball-color"]')
+var setupFireBallInputElement = setupElement.querySelector('input[name="fireball-color"]');
 
 setupFireBallElement.addEventListener('click', function () {
   changeWizardBall();
